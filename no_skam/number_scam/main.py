@@ -1,0 +1,121 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+import random
+from fake_useragent import UserAgent
+
+user_agents = UserAgent()
+
+options = webdriver.FirefoxProfile()
+options.set_preference("general.useragent.override", user_agents.random)
+
+
+driver = webdriver.Firefox(executable_path="/home/crystal/Python/selenium/driver/geckodriver", firefox_profile=options)
+
+names = ["Леша", "Илья", "Мария", "Вова", "Арсений", "Женя", "Саша", "Анна", "Галя", "Мария", "Александр", "Alex", "Ольга", "Владимир", "Богдан", "Григорий", "Наталья", "Милана", "Татьяна", "Василий", "Петя", "Николай", "Таня"]
+
+numbers = ["44", "29", "25", "33"]
+#link = "https://professiyapro.store/dn_rb_admin?utm_source=google&utm_medium=denis_kz&utm_campaign=19577173562&utm_content=145374036457&utm_term=video33&gclid=CjwKCAjwrpOiBhBVEiwA_473dC3PDAaR8hrrnjV-O4JOBsWED7_gZuWTUWojlr4BoIEySmBSie_9ABoCrNkQAvD_BwE#forma"
+
+try:
+   driver.get(url="https://paveldmitriev.com/consultation-with-mentor")
+   driver.implicitly_wait(10)
+   name = driver.find_element(By.ID, "input_1527153268120")
+   driver.implicitly_wait(10)
+   name.click()
+   driver.implicitly_wait(10)
+   name.send_keys(random.choice(names))
+   driver.implicitly_wait(10)
+   name.send_keys(Keys.ENTER)
+   driver.implicitly_wait(10)
+   email = driver.find_element(By.ID, "input_1528364085031")
+   driver.implicitly_wait(10)
+   email.click()
+   driver.implicitly_wait(10)
+   email.send_keys(f"{random.randint(1, 99999)}@mail.com")
+   driver.implicitly_wait(10)
+   email.send_keys(Keys.ENTER)
+   driver.implicitly_wait(10)
+   where_call = driver.find_elements(By.CLASS_NAME, "t-radio__indicator")
+   driver.implicitly_wait(10)
+   where_call[1].click()
+   for_click = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[3]/button[2]")
+   driver.implicitly_wait(10)
+   for_click.click()
+   driver.implicitly_wait(10)
+   number = driver.find_element(By.NAME, "tildaspec-phone-part[]")
+   driver.implicitly_wait(10)
+   number.click()
+   driver.implicitly_wait(10)
+   number.send_keys(f"{random.choice(numbers)}{random.randrange(1111111, 9999999)}")
+   driver.implicitly_wait(10)
+   number.send_keys(Keys.ENTER)
+   driver.implicitly_wait(10)
+   hobby = driver.find_element(By.ID, "input_1527252219292")
+   driver.implicitly_wait(10)
+   hobby.click()
+   driver.implicitly_wait(10)
+   hobby.send_keys("wereierjfkdjvfkdfvjkfdvjkf")
+   driver.implicitly_wait(10)
+   for_click.click()
+   driver.implicitly_wait(10)
+   where_call[3].click()
+   driver.implicitly_wait(10)
+   for_click.click()
+   driver.implicitly_wait(10)
+   dohod = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[2]/form/div[2]/div[7]/div[2]/div[1]/label[2]/div")
+   driver.implicitly_wait(10)
+   dohod.click()
+   driver.implicitly_wait(10)
+   for_click.click()
+   driver.implicitly_wait(10)
+   cash = driver.find_element(By.ID, "input_1613770310557")
+   driver.implicitly_wait(10)
+   cash.click()
+   driver.implicitly_wait(10)
+   cash.send_keys("1500")
+   driver.implicitly_wait(10)
+   cash.send_keys(Keys.ENTER)
+   driver.implicitly_wait(10)
+   problem = driver.find_element(By.ID, "input_1613770406340")
+   driver.implicitly_wait(10)
+   problem.click()
+   driver.implicitly_wait(10)
+   problem.send_keys("Не умею продавать. Не знаю как привлекать клиентов.")
+   driver.implicitly_wait(10)
+   for_click.click()
+   driver.implicitly_wait(10)
+   how_pay = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[2]/form/div[2]/div[10]/div[3]/div[1]/label[1]/div")
+   driver.implicitly_wait(10)
+   how_pay.click()
+   driver.implicitly_wait(10)
+   for_click.click()
+   yes_no = driver.find_element(By.ID, "input_1616171077945")
+   driver.implicitly_wait(10)
+   yes_no.click()
+   driver.implicitly_wait(10)
+   yes_no.send_keys("Да")
+   driver.implicitly_wait(10)
+   yes_no.send_keys(Keys.ENTER)
+   driver.implicitly_wait(10)
+   where_know = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[2]/form/div[2]/div[12]/div[2]/div[1]/label[4]/div")
+   driver.implicitly_wait(10)
+   where_know.click()
+   driver.implicitly_wait(10)
+   special_click = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[3]/button[3]")
+   driver.implicitly_wait(10)
+   special_click.click()
+   driver.implicitly_wait(10)
+   special_click2 = driver.find_element(By.XPATH, "/html/body/div/div[2]/div/div/div/div/div/div[2]/form/div[2]/div[15]/button")
+   driver.implicitly_wait(10)
+   special_click2.click()
+   
+   time.sleep(10)
+
+except Exception as ex:
+    print(ex)
+
+finally:
+    driver.close()
+    driver.quit        
